@@ -188,7 +188,7 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="rounded-3xl bg-white dark:bg-gray-900 p-6 shadow border border-black/5 dark:border-white/10">
               <p className="text-gray-700 dark:text-gray-200">
-                Final-year Software Engineering student with a passion for crafting thoughtful mobile and web experiences using Flutter, React, and AI-enhanced features. I’ve created products like WanderWise (a smart travel companion), e-commerce platforms, and budgeting tools, each blending clean UX with real-world utility. Beyond building, I lead community-driven initiatives, mentor young coders, and dive into books to fuel my curiosity and growth.
+                Graduating Software Engineering student (November 2025) with a passion for crafting thoughtful mobile and web experiences using Flutter, React, and AI-enhanced features. I’ve created products like WanderWise (a smart travel companion), e-commerce platforms, and budgeting tools, each blending clean UX with real-world utility. Beyond building, I lead community-driven initiatives, mentor young coders, and dive into books to fuel my curiosity and growth.
               </p>
               <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
                 <li className="rounded-xl px-3 py-2 bg-gray-100 dark:bg-gray-800">🎶 Red Velvet & RnB</li>

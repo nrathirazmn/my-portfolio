@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import ScrollToTop from "components/ScrollToTop";
 import SiteLayout from "./layouts/SiteLayout";
 import Home from "./pages/Home";
 import WanderWise from "./pages/WanderWise";

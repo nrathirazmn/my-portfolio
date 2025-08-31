@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import { useEffect } from "react";
-
-useEffect(() => {
-  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-}, []);
 
 /** Small badge/pill */
 function Pill({ children }) {
