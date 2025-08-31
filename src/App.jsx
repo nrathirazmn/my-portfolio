@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "components/ScrollToTop";
 import SiteLayout from "./layouts/SiteLayout";
 import Home from "./pages/Home";
 import WanderWise from "./pages/WanderWise";
@@ -11,6 +12,7 @@ export default function App() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route element={<SiteLayout />}>
           <Route index element={<Home />} />
@@ -23,4 +25,6 @@ export default function App() {
       </Routes>
     </AnimatePresence>
   );
+
+  
 }
