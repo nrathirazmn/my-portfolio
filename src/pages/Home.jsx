@@ -58,6 +58,28 @@ function ProjectCard({ title, role, desc, tech, hrefCode = "#", hrefDemo = "#", 
              : <a href={hrefDemo} target="_blank" rel="noreferrer" className="block no-underline">{CardInner}</a>;
 }
 
+/* --- NEW helpers for the Skills section --- */
+function LevelBar({ level = 80 }) {
+  return (
+    <div className="mt-2 h-2 w-full rounded-full bg-gray-200/70 dark:bg-white/10">
+      <div
+        className="h-full rounded-full bg-gradient-to-r from-indigo-600 via-fuchsia-500 to-emerald-500"
+        style={{ width: `${level}%` }}
+        aria-label={`Skill level ${level}%`}
+      />
+    </div>
+  );
+}
+
+function Tag({ children }) {
+  return (
+    <span className="inline-flex items-center rounded-full border border-black/5 dark:border-white/10 bg-white/70 dark:bg-gray-900/60 px-2.5 py-0.5 text-xs">
+      {children}
+    </span>
+  );
+}
+/* --- end helpers --- */
+
 function FeaturedProject() {
   return (
     <Section id="featured" title="Featured Project — WanderWise"
@@ -145,6 +167,15 @@ export default function Home() {
           <p className="text-sm uppercase tracking-[0.2em] text-gray-600 dark:text-gray-300">Software Engineer • President of AIESEC in Kuching 25.26 • Web & Mobile Dev</p>
           <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold leading-tight">Hi, I’m <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-fuchsia-500 to-emerald-500">Athira</span></h1>
           <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-200">I build thoughtful mobile & web apps. Passionate about clean UX, pragmatic tech, and empowering communities.</p>
+
+          {/* NEW: quick skills tag row */}
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            <Tag>Flutter</Tag><Tag>Dart</Tag><Tag>Firebase</Tag>
+            <Tag>React</Tag><Tag>Tailwind</Tag><Tag>Framer Motion</Tag>
+            <Tag>PHP</Tag><Tag>MySQL/MariaDB</Tag><Tag>Chart.js</Tag>
+            <Tag>Java (Swing)</Tag><Tag>Git/GitHub</Tag><Tag>Vercel/Netlify</Tag>
+          </div>
+
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link to="/wanderwise" className="rounded-2xl px-5 py-3 bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-white font-semibold shadow hover:opacity-90">Explore WanderWise ✨</Link>
             <a href="#journey" className="rounded-2xl px-5 py-3 border border-gray-300 dark:border-white/10">See my AIESEC journey</a>
@@ -173,59 +204,149 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* NEW: My Tech Toolkit */}
+      <Section
+        id="skills"
+        title="My Tech Toolkit"
+        subtitle="What I’m strongest at and comfortable shipping with."
+      >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Mobile (Flutter) */}
+          <div className="rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-gray-900 p-5">
+            <h3 className="text-lg font-semibold">Mobile — Flutter</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              Production-ready UI, state mgmt, Firebase integration.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Tag>Flutter</Tag><Tag>Dart</Tag><Tag>Firebase (Auth/Firestore/Storage)</Tag>
+              <Tag>Google Maps API</Tag><Tag>OpenRouter AI</Tag>
+            </div>
+            <LevelBar level={90} />
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Strength: Strong</p>
+          </div>
+
+          {/* Frontend (React) */}
+          <div className="rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-gray-900 p-5">
+            <h3 className="text-lg font-semibold">Frontend — React</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              SPA routing, motion, responsive design, accessibility basics.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Tag>React</Tag><Tag>Vite</Tag><Tag>React Router</Tag>
+              <Tag>Tailwind CSS</Tag><Tag>Framer Motion</Tag>
+            </div>
+            <LevelBar level={85} />
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Strength: Strong</p>
+          </div>
+
+          {/* Backend/Web (PHP) */}
+          <div className="rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-gray-900 p-5">
+            <h3 className="text-lg font-semibold">Backend / Web</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              Reservation/checkout flows, admin dashboards, auth.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Tag>PHP</Tag><Tag>MySQL / MariaDB</Tag><Tag>Sessions</Tag>
+              <Tag>Bootstrap 5</Tag><Tag>Chart.js</Tag><Tag>PHPMailer</Tag>
+            </div>
+            <LevelBar level={78} />
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Strength: Comfortable</p>
+          </div>
+
+          {/* Desktop (Java) */}
+          <div className="rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-gray-900 p-5">
+            <h3 className="text-lg font-semibold">Desktop — Java</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              Lightweight finance tools with simple storage & charts.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Tag>Java</Tag><Tag>Swing + AWT</Tag><Tag>NetBeans</Tag><Tag>JFreeChart</Tag>
+            </div>
+            <LevelBar level={70} />
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Strength: Comfortable</p>
+          </div>
+
+          {/* Collaboration & Ops */}
+          <div className="rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-gray-900 p-5">
+            <h3 className="text-lg font-semibold">Collab & Ops</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              Delivery with design thinking and pragmatic tooling.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Tag>Git / GitHub</Tag><Tag>Figma</Tag><Tag>XAMPP</Tag>
+              <Tag>Vercel</Tag><Tag>Netlify</Tag>
+            </div>
+            <LevelBar level={80} />
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Strength: Strong</p>
+          </div>
+
+          {/* Currently Learning */}
+          <div className="rounded-2xl border border-black/5 dark:border-white/10 bg-white dark:bg-gray-900 p-5">
+            <h3 className="text-lg font-semibold">Currently Learning</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              Deepening full-stack and cloud skills.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Tag>TypeScript</Tag><Tag>Next.js</Tag><Tag>Cloud Functions</Tag>
+            </div>
+            <LevelBar level={55} />
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Strength: Exploring</p>
+          </div>
+        </div>
+      </Section>
+
       <FeaturedProject />
 
       <Section id="projects" title="More Projects" subtitle="Other things I’ve built and shipped.">
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <ProjectCard
-      title="AS Seafood Supplier — E-commerce Website"
-      role="Project Manager • Full-stack (PHP/MySQL)"
-      desc="Digital storefront with catalog, cart (pay at shop), and admin CMS with best-seller analytics."
-      tech={[
-        "PHP",
-        "MySQL (mysqli)",
-        "Bootstrap 5",
-        "Chart.js",
-        "PHPMailer",
-        "HTML/CSS/JS",
-        "Group Project",
-      ]}
-      to="/projects/seafood"
-      hrefCode="https://github.com/yantingling/AUV-AS-Seafood-Supplier-Ecommerce"
-      hrefDemo="https://youtu.be/q5MBZtiSGZ4"
-    />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ProjectCard
+            title="AS Seafood Supplier — E-commerce Website"
+            role="Project Manager • Full-stack (PHP/MySQL)"
+            desc="Digital storefront with catalog, cart (pay at shop), and admin CMS with best-seller analytics."
+            tech={[
+              "PHP",
+              "MySQL (mysqli)",
+              "Bootstrap 5",
+              "Chart.js",
+              "PHPMailer",
+              "HTML/CSS/JS",
+              "Group Project",
+            ]}
+            to="/projects/seafood"
+            hrefCode="https://github.com/yantingling/AUV-AS-Seafood-Supplier-Ecommerce"
+            hrefDemo="https://youtu.be/q5MBZtiSGZ4"
+          />
 
-    <ProjectCard
-      title="CarMe — Car Rental Platform"
-      role="Full-stack • Web (PHP/MySQL)"
-      desc="Customer + admin portals: search/reserve, cart/checkout, invoices, fleet & transactions."
-      tech={[
-        "PHP",
-        "MySQL/MariaDB (mysqli)",
-        "PEAR Mail",
-        "Vanilla JS",
-        "Custom CSS",
-        "Group Project",
-      ]}
-      to="/projects/carme"
-    />
+          <ProjectCard
+            title="CarMe — Car Rental Platform"
+            role="Full-stack • Web (PHP/MySQL)"
+            desc="Customer + admin portals: search/reserve, cart/checkout, invoices, fleet & transactions."
+            tech={[
+              "PHP",
+              "MySQL/MariaDB (mysqli)",
+              "PEAR Mail",
+              "Vanilla JS",
+              "Custom CSS",
+              "Group Project",
+            ]}
+            to="/projects/carme"
+          />
 
-    <ProjectCard
-      title="Money Budget App"
-      role="Desktop Java (Swing)"
-      desc="Track expenses & income, simple budgets, and lightweight charts. Built in Year 2."
-      tech={[
-        "Java",
-        "Swing + AWT",
-        "NetBeans (GUI Builder)",
-        "JFreeChart",
-        "Local files (CSV-like)",
-      ]}
-      to="/projects/money-budget"
-    />
-  </div>
-</Section>
-
+          <ProjectCard
+            title="Money Budget App"
+            role="Desktop Java (Swing)"
+            desc="Track expenses & income, simple budgets, and lightweight charts. Built in Year 2."
+            tech={[
+              "Java",
+              "Swing + AWT",
+              "NetBeans (GUI Builder)",
+              "JFreeChart",
+              "Local files (CSV-like)",
+            ]}
+            to="/projects/money-budget"
+          />
+        </div>
+      </Section>
 
       <Section id="journey" title="My AIESEC Journey" subtitle="Moments that shaped me as a leader.">
         <div className="grid md:grid-cols-2 gap-10 items-start">
