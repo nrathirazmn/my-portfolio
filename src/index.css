@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional small tweak */
+a {
+  @apply font-medium text-indigo-600 hover:text-indigo-500;
+}
+
+/* --- Rainbow bar animation (Nyan Cat vibes) --- */
+.rainbow-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;                 /* adjust thickness if you want */
+  background: linear-gradient(
+    90deg,
+    #ff3b30,
+    #ff9500,
+    #ffcc00,
+    #34c759,
+    #007aff,
+    #5856d6,
+    #af52de
+  );
+  background-size: 400% 100%;
+  animation: rainbow-move 6s linear infinite;
+  z-index: 60;                 /* higher than your nav (which is z-50) */
+}
+
+@keyframes rainbow-move {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+.nyan {
+  position: fixed;
+  top: 10px;       /* tweak so it sits just below the rainbow if you want */
+  left: -120px;    /* start off-screen */
+  height: 32px;    /* size of the gif */
+  animation: nyan-fly 12s linear infinite;
+  z-index: 61;     /* above the rainbow */
+  pointer-events: none;
+}
+
+@keyframes slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+.animate-slide {
+  animation: slide 10s linear infinite;
+}
