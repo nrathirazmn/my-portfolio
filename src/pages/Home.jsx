@@ -171,8 +171,7 @@ export default function Home() {
           {/* NEW: quick skills tag row */}
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
             <Tag>Flutter</Tag><Tag>Dart</Tag><Tag>Firebase</Tag>
-            <Tag>React</Tag><Tag>Tailwind</Tag><Tag>Framer Motion</Tag>
-            <Tag>PHP</Tag><Tag>MySQL/MariaDB</Tag><Tag>Chart.js</Tag>
+            <Tag>React</Tag><Tag>MySQL/MariaDB</Tag><Tag>Chart.js</Tag>
             <Tag>Java (Swing)</Tag><Tag>Git/GitHub</Tag><Tag>Vercel/Netlify</Tag>
           </div>
 
