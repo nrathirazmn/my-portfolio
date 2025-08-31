@@ -11,7 +11,6 @@ export default function App() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route element={<SiteLayout />}>
           <Route index element={<Home />} />
