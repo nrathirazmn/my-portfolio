@@ -42,16 +42,6 @@ function ProjectCard({ title, role, desc, tech, hrefCode = "#", hrefDemo = "#", 
           <span key={t} className="rounded-full border border-gray-200 dark:border-white/10 px-2 py-1">{t}</span>
         ))}
       </div>
-      {/* <div className="mt-5 flex items-center gap-4">
-        <a href={hrefCode} target="_blank" rel="noreferrer" className="text-sm font-medium text-indigo-500 hover:text-indigo-600">
-          Code
-        </a>
-        {hrefDemo && hrefDemo !== "#" && (
-          <a href={hrefDemo} target="_blank" rel="noreferrer" className="text-sm font-medium text-emerald-500 hover:text-emerald-600">
-            Live Demo
-          </a>
-        )}
-      </div> */}
     </motion.div>
   );
   return to ? <Link to={to} className="block no-underline">{CardInner}</Link>
